@@ -66,7 +66,7 @@ public class Stack<T>
         sb.append(stkarr[0]);
         for (int i = 1; i < top; i++)
         {
-            sb.append(",").append(stkarr[i]);
+            sb.append(", ").append(stkarr[i]);
         }
         return "[" + sb.toString() + "]";
     }
