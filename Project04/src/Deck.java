@@ -18,11 +18,7 @@ public class Deck
         shuffle(); // shuffles draw pile initially
     }
 
-    public void addCard(String s)
-    {
-        this.drawPile.push(s);
-    }
-
+    // shuffle method
     public void shuffle()
     {
         while (this.drawPile.isEmpty() == false)
@@ -37,6 +33,7 @@ public class Deck
         }
     }
 
+    // draw method
     public String draw()
     {
 
@@ -60,11 +57,13 @@ public class Deck
         return card;
     }
 
+    // discard
     public void discard(String s)
     {
         discardPile.push(s);
     }
 
+    // toString
     @Override
     public String toString()
     {

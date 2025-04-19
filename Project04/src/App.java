@@ -53,23 +53,23 @@ public class App {
 
 
 
-        
-        System.out.println(chance.toString()); // testing, remove later
+
+        System.out.println(chance.toString());  // testing, remove later
 
         for (int i = 0; i < 12; i++){           // testing, remove later
             chance.discard(chance.draw());
         }
-        System.out.println();                  // testing, remove later
-        System.out.println(chance.toString()); // testing, remove later
-        System.out.println();                  // testing, remove later
-        for (int i = 0; i < 5; i++){           // testing, remove later
+        System.out.println();                   // testing, remove later
+        System.out.println(chance.toString());  // testing, remove later
+        System.out.println();                   // testing, remove later
+        for (int i = 0; i < 5; i++){            // testing, remove later
             chance.discard(chance.draw());
         }
-        System.out.println();                  // testing, remove later
-        System.out.println(chance.toString()); // testing, remove later
-        System.out.println();
+        System.out.println();                   // testing, remove later
+        System.out.println(chance.toString());  // testing, remove later
+        System.out.println();                   // testing, remove later
 
-        System.out.println(Dice.roll()); // testing, remove later
+        System.out.println(Dice.roll());        // testing, remove later
 
 
     }
