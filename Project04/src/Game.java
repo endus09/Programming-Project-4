@@ -1,5 +1,13 @@
 import java.util.Arrays;
 
+/**
+ * Simulates a simplified version of Monopoly focused on calculating the probability
+ * of landing on different board spaces. The simulation tracks player movement,
+ * jail strategies, and card effects while ignoring financial aspects of the game.
+ * 
+ * @author Pranay Jarabani
+ */
+
 public class Game {
     // Constants
     private static final int BOARD_SIZE = 40;
