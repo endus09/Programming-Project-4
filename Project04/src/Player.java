@@ -6,6 +6,7 @@
  * "Program Output" part.
  * 
  * @author Caleb Park
+ * @author Revised by Markus Gulla
  */
 
 public class Player {
@@ -99,5 +100,34 @@ public class Player {
             return true;
         }
         return false;
+    }
+
+    // pulled from old game method
+
+    public void moveToNearestRailroad() {
+        // Current positions of railroads in classic Monopoly
+        int[] railroads = {5, 15, 25, 35};
+        moveToNearest(railroads);
+    }
+    
+    public void moveToNearestUtility() {
+        // Current positions of utilities in classic Monopoly
+        int[] utilities = {12, 28};
+        moveToNearest(utilities);
+    }
+    
+    public void moveToNearest(int[] positions) {
+        int closest = positions[0];
+        int minDistance = Integer.MAX_VALUE;
+        
+        for (int pos : positions) {
+            int distance = (pos - getPosition() + 40) % 40;
+            if (distance < minDistance) {
+                minDistance = distance;
+                closest = pos;
+            }
+        }
+        
+        moveTo(closest);
     }
 }

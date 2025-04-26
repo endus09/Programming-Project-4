@@ -4,6 +4,7 @@
  * jail strategies, and card effects while ignoring financial aspects of the game.
  * @author Jaxon Peterson
  * @author Pranay Jarabani
+ * @author Revised by Markus Gulla
  */
 
 public class Game {
@@ -38,8 +39,8 @@ public class Game {
             totalMoves++; // Increment total moves every turn
 
             // Track the landing count for the space the player lands on
-            int position = player.getCurrentPosition();
-            player.incrementLandingCountAt(position);
+            int position = player.getPosition();
+            player.getLandingCountAt(position);
         }
     }
 
@@ -71,6 +72,36 @@ public class Game {
     // Get the name of a specific position
     public static String getPositionName(int index) {
         return POSITION_NAMES[index];
+    }
+
+    // handles chance card - pulled from old Game Method
+    private void handleChanceCard() {
+        String card = chanceDeck.draw();
+        if (card == null) return;
+        
+        if (card.contains("Go to Jail")) {
+            this.player.sendToJail();
+        } else if (card.contains("Get Out of Jail Free")) {
+            this.player.addGOOJFC();
+        } else if (card.contains("Advance to Boardwalk")) {
+            this.player.moveTo(39); // Boardwalk position
+        } else if (card.contains("Advance to Go")) {
+            this.player.moveTo(0);
+        } else if (card.contains("Advance to Illinois Avenue")) {
+            this.player.moveTo(24);
+        } else if (card.contains("Advance to St. Charles Place")) {
+            this.player.moveTo(11);
+        } else if (card.contains("nearest Railroad")) {
+            this.player.moveToNearestRailroad();
+        } else if (card.contains("nearest Utility")) {
+            this.player.moveToNearestUtility();
+        } else if (card.contains("Go Back 3 Spaces")) {
+            this.player.moveTo(this.player.getPosition() - 3);
+        } else if (card.contains("Reading Railroad")) {
+            this.player.moveTo(5); // Reading Railroad position
+        }
+        
+        chanceDeck.discard(card);
     }
 }
 
