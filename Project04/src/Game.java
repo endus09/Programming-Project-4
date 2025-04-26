@@ -2,7 +2,7 @@
  * Simulates a simplified version of Monopoly focused on calculating the probability
  * of landing on different board spaces. The simulation tracks player movement,
  * jail strategies, and card effects while ignoring financial aspects of the game.
- *
+ * @author Jaxon Peterson
  * @author Pranay Jarabani
  */
 
