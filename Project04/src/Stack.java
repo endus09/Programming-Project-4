@@ -1,4 +1,4 @@
-// @author Markus Gulla
+// by Markus Gulla
 
 public class Stack<T>
 {
@@ -20,7 +20,7 @@ public class Stack<T>
     {
         if (top == stkarr.length)
         {
-            T[] grow = (T[]) new Object[stkarr.length + 10];
+            T[] grow = (T[]) new Object[stkarr.length * 2];
             System.arraycopy(stkarr, 0, grow, 0, stkarr.length);
             stkarr = grow;
         }
@@ -34,16 +34,17 @@ public class Stack<T>
         {
             throw new IllegalStateException("Stack is empty");
         }
+        T item = stkarr[--top];
         if (stkarr.length <= 10)
         {
-            return stkarr[--top];
+            return item;
         } else if (top < stkarr.length / 4)
         {
             T[] shrink = (T[]) new Object[stkarr.length / 2];
-            System.arraycopy(stkarr, 0, shrink, 0, shrink.length);
+            System.arraycopy(stkarr, 0, shrink, 0, top);
             stkarr = shrink;
         }
-        return stkarr[--top];
+        return item;
     }
 
     // checks for empty
@@ -66,9 +67,8 @@ public class Stack<T>
         sb.append(stkarr[0]);
         for (int i = 1; i < top; i++)
         {
-            sb.append(", ").append(stkarr[i]);
+            sb.append(",").append(stkarr[i]);
         }
         return "[" + sb.toString() + "]";
     }
 }
-
