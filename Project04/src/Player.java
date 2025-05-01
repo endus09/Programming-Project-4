@@ -16,6 +16,9 @@ public class Player {
     private int GOOJFC; // Get Out Of Jail Free Cards
     private int doublesRolled;  // Number of consecutive doubles rolled
     private final int[] landings; // Track how often the player lands on each space
+    private static final int GO_TO_JAIL_POSITION = 30;
+    private boolean strategyA;
+    private boolean strategyB;
 
     public Player() {
         this.position = 0; // Start at GO
@@ -24,6 +27,24 @@ public class Player {
         this.doublesRolled = 0;
         this.landings = new int[40]; // 40 Monopoly spaces
         landings[0] = 1; // Start on GO
+        this.strategyA = false; 
+        this.strategyB = false;
+    }
+
+    public boolean isStrategyA() {
+        return strategyA;
+    }
+    
+    public void setStrategyA(boolean strategyA) {
+        this.strategyA = strategyA;
+    }
+    
+    public boolean isStrategyB() {
+        return strategyB;
+    }
+    
+    public void setStrategyB(boolean strategyB) {
+        this.strategyB = strategyB;
     }
 
     public int getPosition() {
@@ -84,6 +105,11 @@ public class Player {
 
     public void moveForward(int steps) {
         setPosition(position + steps);
+        // from old game class
+        if (position == GO_TO_JAIL_POSITION) {
+            sendToJail();
+            return;
+        }
     }
 
     public void moveTo(int space) {
