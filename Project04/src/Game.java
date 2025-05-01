@@ -103,6 +103,23 @@ public class Game {
         
         chanceDeck.discard(card);
     }
+
+    // handles community chest card - pulled from old Game Method
+    private void handleCommunityChestCard() {
+        String card = communityDeck.draw();
+        if (card == null) return;
+        
+        if (card.contains("Go to Jail")) {
+            this.player.sendToJail();
+        } else if (card.contains("Get Out of Jail Free")) {
+            this.player.addGOOJFC();
+        } else if (card.contains("Advance to Go")) {
+            this.player.moveTo(0);
+        }
+        
+        communityDeck.discard(card);
+    }
+
 }
 
 
