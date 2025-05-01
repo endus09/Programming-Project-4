@@ -50,7 +50,7 @@ public class Deck
                 drawPile.push(discardPile.pop());
             }
             shuffle();
-            System.out.println("CARDS SHUFFLED");
+         //   System.out.println("CARDS SHUFFLED");
         }
         String card = this.drawPile.pop();
 
